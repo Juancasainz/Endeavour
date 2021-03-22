@@ -1,34 +1,20 @@
-import {useState, useEffect} from 'react';
-import BlogList from './BlogList'
 
+import BlogList from './BlogList'
+import useFetch from './useFetch'
 const Home = () => {
 
-    const borrarBlog = (id) => {
-        const newBlogs = blogs.filter((blog) => blog.id !== id)
-        setBlogs(newBlogs);
-    }
-
-    useEffect(()=>{fetch('http://localhost:8000/blogs')
-        .then(res=> res.json())
-        .then(data => {
-            setBlogs(data)
-            setIsPending(false)
-            setError(false)
-        })
-        .catch(err => {
-            setError(err.message)
-            setIsPending(false)})
-    },[]);
-
-    const [blogs, setBlogs] = useState(null);
-    const [isPending, setIsPending] = useState(true)
-    const [error, setError] = useState(null)
+const {data:blogs, isPending, err:error} = useFetch('http://localhost:8000/blogs')
+    // const borrarBlog = (id) => {
+    //     const newBlogs = blogs.filter((blog) => blog.id !== id)
+    //     setBlogs(newBlogs);
+    // }
+    //borrarBlog={borrarBlog}
 
     return ( 
         <div className="home">
             {error && <div> {error} </div>}
             {isPending && <div> Loading </div>} 
-            {blogs && <BlogList blogs={blogs} title='Todos los blogs' borrarBlog={borrarBlog}/>}
+            {blogs && <BlogList blogs={blogs} title='Todos los blogs'/>}
         </div>
      );
 }
