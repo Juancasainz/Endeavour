@@ -4,6 +4,7 @@ import useFetch from './useFetch'
 const Home = () => {
 
 const {data:blogs, isPending, err:error} = useFetch('http://localhost:8000/blogs')
+
     // const borrarBlog = (id) => {
     //     const newBlogs = blogs.filter((blog) => blog.id !== id)
     //     setBlogs(newBlogs);
