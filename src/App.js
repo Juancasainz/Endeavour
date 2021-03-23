@@ -1,9 +1,7 @@
-import Navbar from  './Navbar'
+import Navbar from  './components/Navbar'
 import Home from './Home'
 
 function App() {
-  const title = 'webo'
-  const webo = "http://www.google.com"
   return (
     <div className="App">
       <Navbar/>

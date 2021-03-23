@@ -1,5 +1,8 @@
 const BlogList = ({blogs, title, borrarBlog}) => {
-
+ // const borrarBlog = (id) => {
+    //     const newBlogs = items.filter((blog) => blog.id !== id)
+    //     setBlogs(newBlogs);
+    // }
     return ( 
         <div className="blog-list">
             <h2>{title}</h2>

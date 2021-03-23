@@ -1,35 +1,38 @@
 import {useState, useEffect} from 'react';
-import BlogList from './BlogList'
+import Step1 from './components/Step1'
 
 const Home = () => {
 
-    const borrarBlog = (id) => {
-        const newBlogs = blogs.filter((blog) => blog.id !== id)
-        setBlogs(newBlogs);
-    }
+   
+    const [items, setItems] = useState(null);
+    const [combo, setCombos] = useState(null);
 
-    useEffect(()=>{fetch('http://localhost:8000/blogs')
-        .then(res=> res.json())
-        .then(data => {
-            setBlogs(data)
-            setIsPending(false)
-            setError(false)
-        })
-        .catch(err => {
-            setError(err.message)
-            setIsPending(false)})
+    useEffect(()=>{
+        Promise.all([
+            fetch("data/combo.json").then((res) => res.json()),
+            fetch("data/data.json").then((res) => res.json()),
+          ]).then(([combo, data]) => {
+            setItems(data)
+            setCombos(combo)
+          }).catch(err =>console.log(err.message) );
+
+
     },[]);
 
-    const [blogs, setBlogs] = useState(null);
-    const [isPending, setIsPending] = useState(true)
-    const [error, setError] = useState(null)
+
+
 
     return ( 
-        <div className="home">
-            {error && <div> {error} </div>}
-            {isPending && <div> Loading </div>} 
-            {blogs && <BlogList blogs={blogs} title='Todos los blogs' borrarBlog={borrarBlog}/>}
-        </div>
+    <div>
+        Home
+    </div>
+    
+        
+        // <div className="home">
+        //     {error && <div> {error} </div>}
+        //     {isPending && <div> Loading </div>} 
+        //     {blogs && <BlogList blogs={blogs} title='Todos los blogs' borrarBlog={borrarBlog}/>}
+        // </div>
      );
 }
  

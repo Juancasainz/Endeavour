@@ -1,0 +1,535 @@
+[
+  {
+    "Electrodomestico": "Afeitadora",
+    "Porcentaje": 0.021,
+    "Arranque": 2,
+    "Potencia": 5,
+    "Consumo": 5
+  },
+  {
+    "Electrodomestico": "Aire acondicionado de 8000 BTU",
+    "Porcentaje": 0.021,
+    "Arranque": 2,
+    "Potencia": 10,
+    "Consumo": 5
+    
+  },
+  {
+    "Electrodomestico": "Aire acondicionado de 12000 BTU",
+    "Porcentaje": 0.5,
+    "Arranque": 3,
+    "Potencia": 10,
+    "Consumo": 1613
+  },
+  {
+    "Electrodomestico": "Aire acondicionado de 16000 BTU",
+    "Porcentaje": 0.5,
+    "Arranque": 3,
+    "Potencia": 2800,
+    "Consumo": 2153
+  },
+  {
+    "Electrodomestico": "Aire acondicionado de 8000 BTU - Inverter",
+    "Porcentaje": 0.5,
+    "Arranque": 3,
+    "Potencia": 878,
+    "Consumo": 658
+  },
+  {
+    "Electrodomestico": "Aire acondicionado de 12000 BTU- Inverter",
+    "Porcentaje": 0.667,
+    "Arranque": 3,
+    "Potencia": 1398,
+    "Consumo": 1048
+  },
+  {
+    "Electrodomestico": "Aire acondicionado de 16000 BTU - Inverter",
+    "Porcentaje": 0.667,
+    "Arranque": 3,
+    "Potencia": 1820,
+    "Consumo": 1365
+  },
+  {
+    "Electrodomestico": "Hornilla vitrocerámica con hornalla de 120 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 750,
+    "Consumo": 750
+  },
+  {
+    "Electrodomestico": "Hornilla vitrocerámica con hornalla de 140 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 1250,
+    "Consumo": 1250
+  },
+  {
+    "Electrodomestico": "Hornilla vitrocerámica con hornalla de 175 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 1500
+  },
+  {
+    "Electrodomestico": "Hornilla vitrocerámica con hornalla de 200 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 1800,
+    "Consumo": 1800
+  },
+  {
+    "Electrodomestico": "Hornilla vitrocerámica con hornalla de 215 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 2110,
+    "Consumo": 2110
+  },
+  {
+    "Electrodomestico": "Hornilla vitrocerámica con hornalla de 220 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 2350,
+    "Consumo": 2350
+  },
+  {
+    "Electrodomestico": "Hornilla resistivo con hornalla de 150 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 1000,
+    "Consumo": 1000
+  },
+  {
+    "Electrodomestico": "Hornilla resistivo con hornalla de 190 mm de diámetro",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 2000,
+    "Consumo": 2000
+  },
+  {
+    "Electrodomestico": "Aspiradora",
+    "Porcentaje": 0.042,
+    "Arranque": 3,
+    "Potencia": 1200,
+    "Consumo": 1200
+  },
+  {
+    "Electrodomestico": "Batidora de mano",
+    "Porcentaje": 0.042,
+    "Arranque": 3,
+    "Potencia": 300,
+    "Consumo": 300
+  },
+  {
+    "Electrodomestico": "Bomba de agua de 1/2 HP",
+    "Porcentaje": 0.167,
+    "Arranque": 3,
+    "Potencia": 380,
+    "Consumo": 380
+  },
+  {
+    "Electrodomestico": "Bomba de agua de 3/4 HP",
+    "Porcentaje": 0.167,
+    "Arranque": 3,
+    "Potencia": 570,
+    "Consumo": 570
+  },
+  {
+    "Electrodomestico": "Cafetera de filtro eléctrica",
+    "Porcentaje": 0.25,
+    "Arranque": 1,
+    "Potencia": 900,
+    "Consumo": 900
+  },
+  {
+    "Electrodomestico": "Caloventilador chico c/termostato",
+    "Porcentaje": 0.5,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 1500
+  },
+  {
+    "Electrodomestico": "Cargador de celular genérico",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 5,
+    "Consumo": 5
+  },
+  {
+    "Electrodomestico": "Computadora (sólo la CPU)",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 200,
+    "Consumo": 200
+  },
+  {
+    "Electrodomestico": "Extractor de aire para cocina o baño - 80 m3/hora",
+    "Porcentaje": 1,
+    "Arranque": 2,
+    "Potencia": 12,
+    "Consumo": 12
+  },
+  {
+    "Electrodomestico": "Extractor de aire para cocina o baño - 200 m3/hora",
+    "Porcentaje": 1,
+    "Arranque": 2,
+    "Potencia": 20,
+    "Consumo": 20
+  },
+  {
+    "Electrodomestico": "Extractor de aire para cocina o baño - 1200 m3/hora",
+    "Porcentaje": 1,
+    "Arranque": 2,
+    "Potencia": 50,
+    "Consumo": 50
+  },
+  {
+    "Electrodomestico": "Estufa halógena de 3 velas c/termostato",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 1500
+  },
+  {
+    "Electrodomestico": "Estufa de cuarzo c/termostato",
+    "Porcentaje": 0.167,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 1500
+  },
+  {
+    "Electrodomestico": "Freezer",
+    "Porcentaje": 1,
+    "Arranque": 3,
+    "Potencia": 250,
+    "Consumo": 113
+  },
+  {
+    "Electrodomestico": "Heladera",
+    "Porcentaje": 1,
+    "Arranque": 2,
+    "Potencia": 150,
+    "Consumo": 75
+  },
+  {
+    "Electrodomestico": "Heladera con freezer",
+    "Porcentaje": 1,
+    "Arranque": 3,
+    "Potencia": 200,
+    "Consumo": 90
+  },
+  {
+    "Electrodomestico": "Heladera con freezer - Inverter",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 200,
+    "Consumo": 35
+  },
+  {
+    "Electrodomestico": "Horno eléctrico de 25 a 30 litros c/termostato",
+    "Porcentaje": 0.125,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 750
+  },
+  {
+    "Electrodomestico": "Horno eléctrico de 73 litros c/termostato, para empotrar",
+    "Porcentaje": 0.125,
+    "Arranque": 1,
+    "Potencia": 2450,
+    "Consumo": 1225
+  },
+  {
+    "Electrodomestico": "Lámpara de bajo consumo de 11W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 11,
+    "Consumo": 11
+  },
+  {
+    "Electrodomestico": "Lámpara de bajo consumo de 15W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 15,
+    "Consumo": 15
+  },
+  {
+    "Electrodomestico": "Lámpara de bajo consumo de 20W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 20,
+    "Consumo": 20
+  },
+  {
+    "Electrodomestico": "Lámpara halógena de 100 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 100,
+    "Consumo": 100
+  },
+  {
+    "Electrodomestico": "Lámpara halógena de 40 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 40,
+    "Consumo": 40
+  },
+  {
+    "Electrodomestico": "Lámpara halógena de 60 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 60,
+    "Consumo": 60
+  },
+  {
+    "Electrodomestico": "Lámpara LED de 5 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 5,
+    "Consumo": 5
+  },
+  {
+    "Electrodomestico": "Lámpara LED de 9 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 9,
+    "Consumo": 9
+  },
+  {
+    "Electrodomestico": "Lámpara LED de 11 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 11,
+    "Consumo": 11
+  },
+  {
+    "Electrodomestico": "Lavarropas automático de 5 kg con calentamiento de agua",
+    "Porcentaje": 0.125,
+    "Arranque": 3,
+    "Potencia": 2500,
+    "Consumo": 875
+  },
+  {
+    "Electrodomestico": "Lavarropas automático de 5 kg",
+    "Porcentaje": 0.125,
+    "Arranque": 3,
+    "Potencia": 500,
+    "Consumo": 175
+  },
+  {
+    "Electrodomestico": "Lavarropas semi-automático de 5 kg",
+    "Porcentaje": 0.125,
+    "Arranque": 3,
+    "Potencia": 200,
+    "Consumo": 80
+  },
+  {
+    "Electrodomestico": "Lavavajilla para 12 cubiertos",
+    "Porcentaje": 0.125,
+    "Arranque": 3,
+    "Potencia": 1500,
+    "Consumo": 1125
+  },
+  {
+    "Electrodomestico": "Licuadora de mano o de pie",
+    "Porcentaje": 0.042,
+    "Arranque": 3,
+    "Potencia": 600,
+    "Consumo": 600
+  },
+  {
+    "Electrodomestico": "Lustraspiradora",
+    "Porcentaje": 0.042,
+    "Arranque": 3,
+    "Potencia": 800,
+    "Consumo": 720
+  },
+  {
+    "Electrodomestico": "Microondas",
+    "Porcentaje": 0.042,
+    "Arranque": 3,
+    "Potencia": 800,
+    "Consumo": 640
+  },
+  {
+    "Electrodomestico": "Minicomponentes",
+    "Porcentaje": 0.5,
+    "Arranque": 1,
+    "Potencia": 60,
+    "Consumo": 60
+  },
+  {
+    "Electrodomestico": "Monitor LED de 19",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 22,
+    "Consumo": 22
+  },
+  {
+    "Electrodomestico": "Notebook",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 22,
+    "Consumo": 22
+  },
+  {
+    "Electrodomestico": "Pava eléctrica de 1,7 litros",
+    "Porcentaje": 0.083,
+    "Arranque": 1,
+    "Potencia": 2000,
+    "Consumo": 2000
+  },
+  {
+    "Electrodomestico": "Plancha",
+    "Porcentaje": 0.083,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 750
+  },
+  {
+    "Electrodomestico": "Planchita de pelo o buclera",
+    "Porcentaje": 0.083,
+    "Arranque": 1,
+    "Potencia": 40,
+    "Consumo": 40
+  },
+  {
+    "Electrodomestico": "Radiador eléctrico mediano c/termostato",
+    "Porcentaje": 0.5,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 1500
+  },
+  {
+    "Electrodomestico": "Reproductor de DVD",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 15,
+    "Consumo": 15
+  },
+  {
+    "Electrodomestico": "Secador de cabellos",
+    "Porcentaje": 0.083,
+    "Arranque": 1,
+    "Potencia": 2000,
+    "Consumo": 2000
+  },
+  {
+    "Electrodomestico": "Secarropas a calor",
+    "Porcentaje": 0.125,
+    "Arranque": 3,
+    "Potencia": 950,
+    "Consumo": 950
+  },
+  {
+    "Electrodomestico": "Secarropas centrífugo",
+    "Porcentaje": 0.125,
+    "Arranque": 3,
+    "Potencia": 380,
+    "Consumo": 380
+  },
+  {
+    "Electrodomestico": "Televisor color de tubo fluorescente de 21",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 75,
+    "Consumo": 75
+  },
+  {
+    "Electrodomestico": "Televisor color de tubo fluorescente de 25",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 155,
+    "Consumo": 155
+  },
+  {
+    "Electrodomestico": "Televisor color de tubo fluorescente de 29\" a 34",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 175,
+    "Consumo": 175
+  },
+  {
+    "Electrodomestico": "Televisor LCD de 40",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 180,
+    "Consumo": 180
+  },
+  {
+    "Electrodomestico": "Televisor LED 24",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 40,
+    "Consumo": 40
+  },
+  {
+    "Electrodomestico": "Televisor LED 32\" a 50''",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 90,
+    "Consumo": 90
+  },
+  {
+    "Electrodomestico": "Termotanque eléctrico c/termostato",
+    "Porcentaje": 0.083,
+    "Arranque": 1,
+    "Potencia": 1500,
+    "Consumo": 1500
+  },
+  {
+    "Electrodomestico": "Tostadora",
+    "Porcentaje": 0.042,
+    "Arranque": 1,
+    "Potencia": 950,
+    "Consumo": 950
+  },
+  {
+    "Electrodomestico": "Tubo fluorescente de 18 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 18,
+    "Consumo": 18
+  },
+  {
+    "Electrodomestico": "Tubo fluorescente de 36 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 36,
+    "Consumo": 36
+  },
+  {
+    "Electrodomestico": "Tubo fluorescente de 58 W",
+    "Porcentaje": 1,
+    "Arranque": 1,
+    "Potencia": 58,
+    "Consumo": 58
+  },
+  {
+    "Electrodomestico": "Ventilador de techo",
+    "Porcentaje": 1,
+    "Arranque": 2,
+    "Potencia": 60,
+    "Consumo": 60
+  },
+  {
+    "Electrodomestico": "Ventilador de pie",
+    "Porcentaje": 1,
+    "Arranque": 2,
+    "Potencia": 90,
+    "Consumo": 90
+  },
+  {
+    "Electrodomestico": "Vitroconvector 54 x 57 cm c/termostato",
+    "Porcentaje": 0.125,
+    "Arranque": 1,
+    "Potencia": 1000,
+    "Consumo": 1000
+  },
+  {
+    "Electrodomestico": "Vitroconvector 86 x 58 cm c/termostato",
+    "Porcentaje": 0.125,
+    "Arranque": 1,
+    "Potencia": 2000,
+    "Consumo": 2000
+  }
+]
