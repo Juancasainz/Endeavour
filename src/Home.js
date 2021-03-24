@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import Step1 from './components/Step1'
+import Pap from './components/Pap'
+import Listdata from './components/Listdata'
 
 const Home = () => {
 
@@ -15,8 +17,6 @@ const Home = () => {
             setItems(data)
             setCombos(combo)
           }).catch(err =>console.log(err.message) );
-
-
     },[]);
 
 
@@ -24,7 +24,7 @@ const Home = () => {
 
     return ( 
     <div>
-        Home
+        <Pap/>
     </div>
     
         
