@@ -6,7 +6,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Listdata from './Listdata';
+import Step2 from './Step2';
 import Step1 from './Step1';
 
 //use Styles son los estilos, solo ignorar
@@ -31,7 +31,7 @@ function getSteps() {
 
 
 //getStepContent te escupe segun la pestaña del stepper
-function getStepContent(stepIndex,datos,handlePlace,place) {
+function getStepContent(stepIndex,datos,handlePlace,place,lista,handleLista,potmax,handlePotmax,potmed,handlePotmed) {
   switch (stepIndex) {
     case 0:
       return (<Step1 
@@ -41,7 +41,9 @@ function getStepContent(stepIndex,datos,handlePlace,place) {
         />)
     case 1:
       return (<div>
-        {datos && <Listdata datos={datos} />}
+        {datos && <Step2 datos={datos} lista={lista} 
+        setLista={handleLista} setPotmax={handlePotmax} 
+        setPotmed={handlePotmed} potmed={potmed} potmax={potmax}/>}
       </div>)
     case 2:
       return 'Selecciona el tipo de combo que necesites';
@@ -54,14 +56,26 @@ function getStepContent(stepIndex,datos,handlePlace,place) {
 export default function Pap() {
 
   const [place, setPlace] = useState('casa');
+  const [potmax, setPotmax] = useState(0);
+  const [potmed, setPotmed] = useState(0);
+  const [lista, setLista] = useState([]);
   const [datos, setDatos] = useState([]);
   const [combo, setCombos] = useState(null);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
+  function handlePotmax(newValue) {
+    setPotmax(newValue);
+  }
+  function handlePotmed(newValue) {
+    setPotmed(newValue);
+  }
   function handlePlace(newValue) {
     setPlace(newValue);
+  }
+  function handleLista(newValue) {
+    setLista(newValue);
   }
 
     useEffect(()=>{
@@ -108,7 +122,7 @@ const handleChangue= input=>e=>{
           </div>
         ) : (
           <div>
-            {getStepContent(activeStep,datos,handlePlace,place)}
+            {getStepContent(activeStep,datos,handlePlace,place,lista,handleLista,potmax,handlePotmax,potmed,handlePotmed)}
             <div>
               <Button
                 disabled={activeStep === 0}

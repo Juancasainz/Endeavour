@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import Step1 from './components/Step1'
 import Pap from './components/Pap'
-import Listdata from './components/Listdata'
+import Step2 from './components/Step2'
 
 const Home = () => {
 
