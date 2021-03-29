@@ -1,18 +1,18 @@
-import React from 'react';
-import {useState, useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Step2 from './Step2';
-import Step1 from './Step1';
+import React from "react";
+import { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Step2 from "./Step2";
+import Step1 from "./Step1";
 
 //use Styles son los estilos, solo ignorar
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -25,37 +25,51 @@ const useStyles = makeStyles((theme) => ({
 
 //getSteps son nombres en el stepper
 function getSteps() {
-  return ['Inmueble', 'Electrodomesticos', 'Combos'];
+  return ["Inmueble", "Electrodomesticos", "Combos"];
 }
 
-
-
 //getStepContent te escupe segun la pestaña del stepper
-function getStepContent(stepIndex,datos,handlePlace,place,lista,handleLista,potmax,handlePotmax,potmed,handlePotmed) {
+function getStepContent(
+  stepIndex,
+  datos,
+  handlePlace,
+  place,
+  lista,
+  handleLista,
+  potmax,
+  handlePotmax,
+  potmed,
+  handlePotmed
+) {
   switch (stepIndex) {
     case 0:
-      return (<Step1 
-        handlePlace={handlePlace} 
-        place={place}
-        activeStep
-        />)
+      return <Step1 handlePlace={handlePlace} place={place} activeStep />;
     case 1:
-      return (<div>
-        {datos && <Step2 datos={datos} lista={lista} 
-        setLista={handleLista} setPotmax={handlePotmax} 
-        setPotmed={handlePotmed} potmed={potmed} potmax={potmax}/>}
-      </div>)
+      return (
+        <div>
+          {datos && (
+            <Step2
+              datos={datos}
+              lista={lista}
+              setLista={handleLista}
+              setPotmax={handlePotmax}
+              setPotmed={handlePotmed}
+              potmed={potmed}
+              potmax={potmax}
+            />
+          )}
+        </div>
+      );
     case 2:
-      return 'Selecciona el tipo de combo que necesites';
+      return "Selecciona el tipo de combo que necesites";
     default:
-      return 'Unknown stepIndex';
+      return "Unknown stepIndex";
   }
 }
 
 // aqui es donde se pone el nombre del componente como funcion
 export default function Pap() {
-
-  const [place, setPlace] = useState('casa');
+  const [place, setPlace] = useState("casa");
   const [potmax, setPotmax] = useState(0);
   const [potmed, setPotmed] = useState(0);
   const [lista, setLista] = useState([]);
@@ -78,15 +92,17 @@ export default function Pap() {
     setLista(newValue);
   }
 
-    useEffect(()=>{
-        Promise.all([
-            fetch("data/combo.json").then((res) => res.json()),
-            fetch("data/data.json").then((res) => res.json()),
-          ]).then(([combo, data]) => {
-            setDatos(data)
-            setCombos(combo)
-          }).catch(err =>console.log(err.message) );
-    },[]);
+  useEffect(() => {
+    Promise.all([
+      fetch("data/combo.json").then((res) => res.json()),
+      fetch("data/data.json").then((res) => res.json()),
+    ])
+      .then(([combo, data]) => {
+        setDatos(data);
+        setCombos(combo);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -100,9 +116,9 @@ export default function Pap() {
     setActiveStep(0);
   };
 
-const handleChangue= input=>e=>{
-  this.setState({[input]:e.target.value});
-}
+  const handleChangue = (input) => (e) => {
+    this.setState({ [input]: e.target.value });
+  };
 
   return (
     <div className={classes.root}>
@@ -117,12 +133,25 @@ const handleChangue= input=>e=>{
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>All steps completed</Typography>
+            <Typography className={classes.instructions}>
+              All steps completed
+            </Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
           <div>
-            {getStepContent(activeStep,datos,handlePlace,place,lista,handleLista,potmax,handlePotmax,potmed,handlePotmed)}
+            {getStepContent(
+              activeStep,
+              datos,
+              handlePlace,
+              place,
+              lista,
+              handleLista,
+              potmax,
+              handlePotmax,
+              potmed,
+              handlePotmed
+            )}
             <div>
               <Button
                 disabled={activeStep === 0}
@@ -132,7 +161,7 @@ const handleChangue= input=>e=>{
                 Back
               </Button>
               <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </div>
           </div>
