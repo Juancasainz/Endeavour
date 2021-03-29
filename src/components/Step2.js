@@ -1,64 +1,41 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // const Listdata = ({datos , eliminar}) => {
     const Step2 = ({datos,setLista,lista,potmax,setPotmax,potmed,setPotmed}) => {
-        const [opcion,setOpcion]=useState('');
+        const [opcion,setOpcionState]=useState('');
+        const [objeto, setObjeto] = useState({});
 
-    //     const borrarBlog = (id) => {
-    //         const newBlogs = items.filter((blog) => blog.id !== id)
-    //         setBlogs(newBlogs);
-    //    }
+        useEffect(() => {   
+            console.log('ueffec',lista);
+            total()
+        }, [lista]);
 
        const addrow=(e)=>{
-        const lista2 = lista
-        lista2.push({
+            const lista2 = lista.concat([{
             id: e.target.value,
             one: 1,
             two: JSON.parse(e.target.value)
-         })
-        setLista(lista2)
-        total()
+         }])
+        setLista(lista2) 
        }
 
        const deleteRow = (id)=>{          
             //newList.filter((item) => item.two.Electrodomestico !== id)
             const lista2 = lista.filter((item) => item.two.Electrodomestico != id)
             setLista(lista2)
-            total2(lista2)
        }
-
-       const handlerCant = (e,index)=>{
-        const lista2 = lista
-        lista2[index].one = e.target.value
-
-        setLista(lista2)
-      // const newLista = lista.filter((item)) 
-        total()
+       
+       const handlerCant = (e,index)=>{ 
+        const list2 = lista
+        list2[index].one = e.target.value
+        setLista(list2)
    }
-
-function total2(lista2){
-    console.log(lista2.length);
-
-    if(lista2.length === 0){
-        setPotmax(0)
-        setPotmed(0)
-    }
-            let potmed2 = 0
-            let potmax2 = 0
-            lista2.map((input) => {    
-                setPotmax(potmax2 + parseInt(input.one * input.two.Potencia * input.two.Arranque))
-                potmax2= potmax2 + parseInt(input.one * input.two.Potencia * input.two.Arranque)
-                setPotmed(potmed2 + parseFloat(parseFloat(input.one * input.two.Potencia * input.two.Porcentaje).toFixed(2))) 
-                potmed2 = potmed2 + parseFloat(parseFloat(input.one * input.two.Potencia * input.two.Porcentaje).toFixed(2))
-            });
-}
 
         function total(){
             if(lista.length === 0){
                 setPotmax(0)
                 setPotmed(0)
             }
-        
             let potmed2 = 0
             let potmax2 = 0
             lista.map((input) => {    
@@ -67,6 +44,7 @@ function total2(lista2){
                 setPotmed(potmed2 + parseFloat(parseFloat(input.one * input.two.Potencia * input.two.Porcentaje).toFixed(2))) 
                 potmed2 = potmed2 + parseFloat(parseFloat(input.one * input.two.Potencia * input.two.Porcentaje).toFixed(2))
             });
+
             //   if (potmax <= 3000 && this.potmed <= 600 && potmax > 0) {
             //     index = this.combo[2];
             //   } else if (
@@ -90,17 +68,21 @@ function total2(lista2){
                 <select value={opcion} onChange={(e)=>addrow(e)}>
                     <option disabled value="">Seleciona</option>
                     {datos.map((dato)=>(
-                        <option value={JSON.stringify(dato)} key={dato.Electrodomestico}>{dato.Electrodomestico}</option>
+                        <option key={dato.Electrodomestico} value={JSON.stringify(dato)} >{dato.Electrodomestico}</option>
                     ))}
                 </select>
+                <div id="lista">
+                
                 {lista.map((item,index)=>(
-                    <div >
-                        <input type="number" id={item.two.Electrodomestico} min="1" value={item.one}  onChange={(e)=>handlerCant(e,index)}/>
+                    <div key={item.two.Electrodomestico} >
+                        <input type="number" id={item.two.Electrodomestico} min="1" value={lista[index].one} onChange={(e)=>handlerCant(e,index)}/>
                         <span > {item.two.Electrodomestico}</span>
                         <span> {item.Consumo}</span>
                     <button onClick={()=>deleteRow(item.two.Electrodomestico,index)}>X</button>
                     </div>
                 ))}
+                </div>
+                
             </div>
             
         );
