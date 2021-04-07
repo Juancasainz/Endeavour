@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Step2 from "./Step2";
 import Step1 from "./Step1";
+import Step3 from "./Step3";
 
 //use Styles son los estilos, solo ignorar
 const useStyles = makeStyles((theme) => ({
@@ -30,38 +31,39 @@ function getSteps() {
 
 //getStepContent te escupe segun la pestaña del stepper
 function getStepContent(
-  stepIndex,
-  datos,
-  handlePlace,
-  place,
-  lista,
-  handleLista,
-  potmax,
-  handlePotmax,
-  potmed,
-  handlePotmed
+  stepIndex, webo
 ) {
   switch (stepIndex) {
     case 0:
-      return <Step1 handlePlace={handlePlace} place={place} activeStep />;
+      return <Step1 handlePlace={webo?.handlePlace} place={webo?.place} activeStep />;
     case 1:
       return (
         <div>
-          {datos && (
+          { 
             <Step2
-              datos={datos}
-              lista={lista}
-              setLista={handleLista}
-              setPotmax={handlePotmax}
-              setPotmed={handlePotmed}
-              potmed={potmed}
-              potmax={potmax}
+              datos={webo?.datos}
+              lista={webo?.lista}
+              setLista={webo?.handleLista}
+              setPotmax={webo?.handlePotmax}
+              setPotmed={webo?.handlePotmed}
+              potmed={webo?.potmed}
+              potmax={webo?.potmax}
             />
-          )}
+          }
         </div>
       );
     case 2:
-      return "Selecciona el tipo de combo que necesites";
+      return (
+        <div>
+          {
+            <Step3 
+            potmed={webo?.potmed}
+            potmax={webo?.potmax}
+            combo={webo?.combo}
+            />
+        }
+        </div>
+      );
     default:
       return "Unknown stepIndex";
   }
@@ -78,6 +80,19 @@ export default function Pap() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
+
+  const webo = {
+    datos,
+    handlePlace,
+    place,
+    lista,
+    handleLista,
+    potmax,
+    handlePotmax,
+    potmed,
+    handlePotmed,
+    combo}
+  
 
   function handlePotmax(newValue) {
     setPotmax(newValue);
@@ -116,9 +131,7 @@ export default function Pap() {
     setActiveStep(0);
   };
 
-  const handleChangue = (input) => (e) => {
-    this.setState({ [input]: e.target.value });
-  };
+
 
   return (
     <div className={classes.root}>
@@ -141,16 +154,7 @@ export default function Pap() {
         ) : (
           <div>
             {getStepContent(
-              activeStep,
-              datos,
-              handlePlace,
-              place,
-              lista,
-              handleLista,
-              potmax,
-              handlePotmax,
-              potmed,
-              handlePotmed
+              activeStep, webo
             )}
             <div>
               <Button

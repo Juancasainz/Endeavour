@@ -1,4 +1,18 @@
 import React, { useState, useEffect } from "react";
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import { makeStyles } from '@material-ui/core/styles';
+import TablaLista from "./TablaLista";
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 // const Listdata = ({datos , eliminar}) => {
 const Step2 = ({
@@ -10,10 +24,10 @@ const Step2 = ({
   potmed,
   setPotmed,
 }) => {
+  const classes = useStyles();
   const [opcion, setOpcionState] = useState("");
 
   useEffect(() => {
-    console.log("ueffec", lista);
     total();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lista]);
@@ -29,18 +43,6 @@ const Step2 = ({
     setLista(lista2);
   };
 
-  const deleteRow = (id) => {
-    //newList.filter((item) => item.two.Electrodomestico !== id)
-    const lista2 = lista.filter((item) => item.two.Electrodomestico != id);
-    setLista(lista2);
-  };
-
-  const handlerCant = (e, index) => {
-    const list2 = [...lista];
-    list2[index].one = e.target.value;
-    setLista(list2);
-  };
-
   function total() {
     if (lista.length === 0) {
       setPotmax(0);
@@ -48,7 +50,7 @@ const Step2 = ({
     }
     let potmed2 = 0;
     let potmax2 = 0;
-    lista.map((input) => {
+    lista.map((input) =>  { 
       setPotmax(
         potmax2 + parseInt(input.one * input.two.Potencia * input.two.Arranque)
       );
@@ -69,56 +71,29 @@ const Step2 = ({
             input.one * input.two.Potencia * input.two.Porcentaje
           ).toFixed(2)
         );
+       return ""
     });
-
-    //   if (potmax <= 3000 && this.potmed <= 600 && potmax > 0) {
-    //     index = this.combo[2];
-    //   } else if (
-    //     potmax > 3001 &&
-    //     potmax <= 6000 &&
-    //     potmed > 601 &&
-    //     potmed <= 1200
-    //   ) {
-    //     index = combo[3];
-    //   } else if (potmax == 0) {
-    //     index = combo.filter((el) => el.Producto == "0")[0]
-    //     console.log(index)
-    //   } else {
-    //     index = combo[4];
-    //   }
+    
   }
 
   return (
     <div className="list">
-      {potmed}:{potmax}:{JSON.stringify(lista)}
-      <select value={opcion} onChange={(e) => addrow(e)}>
-        <option disabled value="">
-          Seleciona
-        </option>
-        {datos.map((dato) => (
-          <option key={dato.Electrodomestico} value={JSON.stringify(dato)}>
-            {dato.Electrodomestico}
-          </option>
-        ))}
-      </select>
-      <div id="lista">
-        {lista.map((item, index) => (
-          <div key={item.two.Electrodomestico}>
-            <input
-              type="number"
-              id={item.two.Electrodomestico}
-              min="1"
-              value={lista[index].one}
-              onChange={(e) => handlerCant(e, index)}
-            />
-            <span> {item.two.Electrodomestico}</span>
-            <span> {item.Consumo}</span>
-            <button onClick={() => deleteRow(item.two.Electrodomestico, index)}>
-              X
-            </button>
-          </div>
-        ))}
-      </div>
+
+      <FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel htmlFor="outlined-age-native-simple">Selecciona</InputLabel>
+        <Select
+          native
+          value={opcion}
+          onChange={(e)=>addrow(e)}
+          label="Electrodomestico"
+        >
+        <option aria-label="None" value="" />
+          {datos.map((dato)=>(
+                        <option  key={dato.Electrodomestico} value={JSON.stringify(dato)}>{dato.Electrodomestico}</option>
+                    ))}
+        </Select>
+      </FormControl>
+      <TablaLista lista={lista} potmax={potmax} potmed={potmed} setLista={setLista}/>
     </div>
   );
 };

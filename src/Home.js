@@ -1,9 +1,12 @@
 import Pap from "./components/Pap";
+import Container from '@material-ui/core/Container';
 
 const Home = () => {
   return (
     <div>
-      <Pap />
+      <Container>
+        <Pap />
+      </Container>
     </div>
 
     // <div className="home">
