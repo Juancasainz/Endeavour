@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CardCombo from "./CardCombo";
 import TablaOp from './TablaOp';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,8 +22,9 @@ const Step3 = ({combo, potmax, potmed}) => {
         if (potmax <= 3000 && potmed <= 600 && potmax > 1500) return [combo[2],combo[3]]
         if (potmax <= 6000 && potmed <= 1200 && potmax > 3000) return [combo[3],combo[4]]
         if (potmax <= 9000 && potmed <= 1800 && potmax > 6000) return [combo[4],combo[5]]
+
     }
-    
+    console.log(selectCombo()[0]);
     const alamedida = ()=>{
 
     }
@@ -33,17 +34,21 @@ const Step3 = ({combo, potmax, potmed}) => {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs>
-          <CardCombo title={"Combo Standard"} combo={selectCombo()[0]}/>
+          <CardCombo title={"Combo Standard"} combo={selectCombo()[0]} gato={"/img/gato4.jpg"}/>
         </Grid>
+        {selectCombo()[0].Producto === "Combo 3" ? "": 
         <Grid item xs>
-            <CardCombo title={"Combo optimo"} combo={selectCombo()[1]}/>
-        </Grid>
+          <CardCombo title={"Combo optimo"} combo={selectCombo()[1]} gato={"/img/gato3.jpg"}/> 
+        </Grid>}
+        
         <Grid item xs>
-            <CardCombo title={"A la medida"} potmax={potmax} potmed={potmed}/>
+            <CardCombo title={"A la medida"} potmax={potmax} potmed={potmed} gato={"/img/gato5.jpg"}/>
         </Grid>
       </Grid>
+      <br/>
+      <h2>Conoce todos nuestros combos</h2>
       <TablaOp combo={combo}/>
-      CONOCE TODOS NUESTROS COMBOS
+      
     </div>
      );
 }

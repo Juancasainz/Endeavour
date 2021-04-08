@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { CardMedia } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
 
 });
 
-export default function CardCombo({title, combo, potmed, potmax}) {
+export default function CardCombo({title, combo, potmed, potmax, gato}) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -51,12 +52,18 @@ export default function CardCombo({title, combo, potmed, potmax}) {
   return (
 
     <Card className={classes.root}>
+      <CardMedia
+                  component="img"
+                  height="140"
+                  image={gato}
+                  title="casa"                 
+                />
       <CardContent align='center'>
         <Typography variant="h5" component="h2">
           {title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          {combo?.Producto}
+          {title === "A la medida"? <br/> : combo?.Producto}
         </Typography>
         <Typography variant="body2" component="span">
           {title === "A la medida" ? alamedidadescripcion() : combodescripcion() }

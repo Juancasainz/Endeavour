@@ -35,7 +35,7 @@ function getStepContent(
 ) {
   switch (stepIndex) {
     case 0:
-      return <Step1 handlePlace={webo?.handlePlace} place={webo?.place} activeStep />;
+      return <Step1 handlePlace={webo?.handlePlace} place={webo?.place} activeStep box={webo?.box} handleBox={webo?.handleBox} />;
     case 1:
       return (
         <div>
@@ -71,7 +71,7 @@ function getStepContent(
 
 // aqui es donde se pone el nombre del componente como funcion
 export default function Pap() {
-  const [place, setPlace] = useState("casa");
+  const [place, setPlace] = useState({"lugar":"casa","box":[0,0]});
   const [potmax, setPotmax] = useState(0);
   const [potmed, setPotmed] = useState(0);
   const [lista, setLista] = useState([]);
@@ -80,6 +80,7 @@ export default function Pap() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
+  const [box, setBox] = useState([0,0]);
 
   const webo = {
     datos,
@@ -91,7 +92,9 @@ export default function Pap() {
     handlePotmax,
     potmed,
     handlePotmed,
-    combo}
+    combo,
+    box,
+    handleBox}
   
 
   function handlePotmax(newValue) {
@@ -105,6 +108,9 @@ export default function Pap() {
   }
   function handleLista(newValue) {
     setLista(newValue);
+  }
+  function handleBox(newValue) {
+    setBox(newValue);
   }
 
   useEffect(() => {
@@ -135,7 +141,7 @@ export default function Pap() {
 
   return (
     <div className={classes.root}>
-      <h1>{place}</h1>
+      <h1>{place.lugar}</h1>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -164,7 +170,7 @@ export default function Pap() {
               >
                 Back
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
+              <Button variant="contained" color="primary" onClick={handleNext} disabled={activeStep === 1 && potmed === 0}>
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
             </div>

@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import { TextField } from '@material-ui/core';
+import { IconButton, TextField } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
@@ -44,19 +44,27 @@ export default function TablaLista({lista,potmax,potmed,setLista}) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {lista.map((item,index) => (
+          {lista.map((item,index) =>  ( 
             <TableRow key={item.two.Electrodomestico}>
               <TableCell>
                 <TextField
                         label="Cantidad" variant="outlined" type="number"
                         id={item.two.Electrodomestico}
                         value={lista[index].one}
-                        onChange={(e) => handlerCant(e, index)} />  
+                        onChange={(e) => handlerCant(e, index)} 
+                        inputProps={{min:1}}/>  
                 </TableCell>
                 <TableCell >{item.two.Electrodomestico}</TableCell>
                 <TableCell >{item.two.Consumo}</TableCell>
                 <TableCell >
-                    <HighlightOffIcon color="secondary" onClick={() => deleteRow(item.two.Electrodomestico, index)}/>
+                <IconButton
+                        color="secondary"
+                        onClick={() =>
+                          deleteRow(item.two.Electrodomestico, index)
+                        }
+                      >
+                        <HighlightOffIcon />
+                      </IconButton>
                 </TableCell>
             </TableRow>
           ))}

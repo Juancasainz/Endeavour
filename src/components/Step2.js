@@ -4,10 +4,11 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import TablaLista from "./TablaLista";
+import { Grid, MenuItem } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 240,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -26,6 +27,7 @@ const Step2 = ({
 }) => {
   const classes = useStyles();
   const [opcion, setOpcionState] = useState("");
+  const [disable, setDisable] = useState([]);
 
   useEffect(() => {
     total();
@@ -42,6 +44,13 @@ const Step2 = ({
     ]);
     setLista(lista2);
   };
+
+  const webo = (e,index) => {
+    let disable2 = [...disable];
+    disable2.push(index)
+    setDisable(disable2)
+    console.log(disable);
+  }
 
   function total() {
     if (lista.length === 0) {
@@ -78,22 +87,34 @@ const Step2 = ({
 
   return (
     <div className="list">
-
-      <FormControl variant="outlined" className={classes.formControl}>
+      <FormControl  variant="outlined" className={classes.formControl}>
         <InputLabel htmlFor="outlined-age-native-simple">Selecciona</InputLabel>
         <Select
-          native
           value={opcion}
           onChange={(e)=>addrow(e)}
           label="Electrodomestico"
         >
-        <option aria-label="None" value="" />
-          {datos.map((dato)=>(
-                        <option  key={dato.Electrodomestico} value={JSON.stringify(dato)}>{dato.Electrodomestico}</option>
-                    ))}
+        <MenuItem value=""
+       >
+            <em>Selecciona</em>
+          </MenuItem>
+          {datos.map((dato,index) => {
+            return (
+              <MenuItem
+                key={dato.Electrodomestico}
+                value={JSON.stringify(dato)}
+
+                onClick={(e) => webo(e,index)}
+                disabled = {disable.includes(index)}
+              >
+                {dato.Electrodomestico}
+              </MenuItem>
+            );
+          })}
         </Select>
       </FormControl>
       <TablaLista lista={lista} potmax={potmax} potmed={potmed} setLista={setLista}/>
+      
     </div>
   );
 };

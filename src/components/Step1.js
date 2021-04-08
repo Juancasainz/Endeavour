@@ -25,32 +25,30 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Inmueble({ handlePlace, place }) {
+export default function Inmueble({ handlePlace, place, box, handleBox }) {
   const classes = useStyles();
   const [selectedValue, setSelectedValue] = useState();
-  const [box, setBox] = useState([0,0]);
+
 
   const handleChange = (lugar) => {
     if(lugar === "casa"){
-      let box2 = [...box];
-      box2 = [3,0]
-      setBox(box2)      
+      let place2 = place;
+      place2 = {"lugar":"casa","box":[3,0]}
+      handlePlace(place2)      
     }
     else {
-      let box2 = [...box];
-      box2 = [0,3]
-      setBox(box2)
+      let place2 = place;
+      place2 = {"lugar":"empresa","box":[0,3]}
+      handlePlace(place2)   
     }
-    handlePlace(lugar);
-    } 
-  
+  }
 
   return (
     <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={3}>
           <Grid item xs={3} onClick={(e)=>handleChange("casa")}>
-          <Box className={classes.boxEmpresa} border={box[0]} borderRadius={8}>
+          <Box className={classes.boxEmpresa} border={place?.box[0]} borderRadius={8}>
             <Card className={classes.root} >
               <CardActionArea>
                 <CardMedia
@@ -72,7 +70,7 @@ export default function Inmueble({ handlePlace, place }) {
         </Box>
           </Grid>
           <Grid item xs={3} onClick={(e)=>handleChange("empresa")}>
-          <Box className={classes.boxEmpresa} border={box[1]} borderRadius={8}>
+          <Box className={classes.boxEmpresa} border={place?.box[1]} borderRadius={8}>
           <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
