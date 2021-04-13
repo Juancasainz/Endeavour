@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Step2 from "./Step2";
 import Step1 from "./Step1";
 import Step3 from "./Step3";
+import axios from "axios"
 
 //use Styles son los estilos, solo ignorar
 const useStyles = makeStyles((theme) => ({
@@ -114,13 +115,10 @@ export default function Pap() {
   }
 
   useEffect(() => {
-    Promise.all([
-      fetch("data/combo.json").then((res) => res.json()),
-      fetch("data/data.json").then((res) => res.json()),
-    ])
-      .then(([combo, data]) => {
-        setDatos(data);
-        setCombos(combo);
+      fetch("http://localhost:4000/getData").then((res) => res.json())
+      .then((data) => {
+        setDatos(data[0].Producto);
+        setCombos(data[0].Combo);
       })
       .catch((err) => console.log(err.message));
   }, []);

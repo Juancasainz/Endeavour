@@ -1,12 +1,30 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import About from './About'
+import { Link, BrowserRouter as Router } from 'react-router-dom';
+
+
+const useStyles = makeStyles((theme) => ({
+  title: {
+    flexGrow: 1,
+  },
+}));
+
 const Navbar = () => {
+  const classes = useStyles();
   return (
-    <nav className="navbar">
-      <p>Esto es el NavBar</p>
-      <div className="links">
-        <a href="/">lol</a>
-        <a href="/create">New Blog</a>
-      </div>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" className={classes.title}>
+        <Link to="/">Home</Link>
+        </Typography>
+        <Button color="inherit"><Link to="/about">About</Link></Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 

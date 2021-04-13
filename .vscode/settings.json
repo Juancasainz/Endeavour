@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/b9098590-cd92-4104-81d6-d5f910944c51/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/PanelesdeJesus",
+    "appService.deploySubpath": "."
+}
