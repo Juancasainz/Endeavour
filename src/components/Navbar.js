@@ -11,7 +11,14 @@ import { Link, BrowserRouter as Router } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
+    color: "white",
   },
+  link:{
+    textDecoration: 'none' ,
+    color: "white",
+    fontFamily: "Arial"
+
+  }
 }));
 
 const Navbar = () => {
@@ -19,10 +26,11 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-        <Link to="/">Home</Link>
-        </Typography>
-        <Button color="inherit"><Link to="/about">About</Link></Button>
+        
+      <Typography variant="h6"  className={classes.title}><Link color="secondary" to="/" className={classes.link}>Home</Link></Typography>
+        
+        
+        <Button color="inherit"><Link to="/about" className={classes.link}>About</Link></Button>
       </Toolbar>
     </AppBar>
   );

@@ -16,15 +16,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TablaLista({lista,potmax,potmed,setLista}) {
+export default function TablaLista({lista,potmax,potmed,setLista,disable,handleDisable}) {
   const classes = useStyles();
   let total = [0];
 
   const deleteRow = (id) => {
-    //newList.filter((item) => item.two.Electrodomestico !== id)
+    let disable2 = [...disable];
+    disable2.splice(lista.findIndex(x => x.id === id ),1)
+    handleDisable(disable2)
     const lista2 = lista.filter((item) => item.two.Electrodomestico !== id);
-    setLista(lista2);
-  };
+    setLista(lista2);    
+  }
 
   const handlerCant = (e, index) => {
     const list2 = [...lista];

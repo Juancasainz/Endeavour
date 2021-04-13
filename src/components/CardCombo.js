@@ -31,8 +31,6 @@ const useStyles = makeStyles({
 
 export default function CardCombo({title, combo, potmed, potmax, gato}) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-
   
   const alamedidadescripcion = () => { return (
   <div>

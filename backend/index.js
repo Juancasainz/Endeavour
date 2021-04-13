@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 let dato = require("./model");
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/datos", {
+mongoose.connect("mongodb+srv://admin:Password01@cluster0.3ca2j.mongodb.net/datos?retryWrites=true&w=majority", {
   useNewUrlParser: true
 });
 

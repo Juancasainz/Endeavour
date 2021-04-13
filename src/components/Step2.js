@@ -29,6 +29,10 @@ const Step2 = ({
   const [opcion, setOpcionState] = useState("");
   const [disable, setDisable] = useState([]);
 
+  function handleDisable(newValue) {
+    setDisable(newValue);
+  }
+
   useEffect(() => {
     total();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,7 +53,6 @@ const Step2 = ({
     let disable2 = [...disable];
     disable2.push(index)
     setDisable(disable2)
-    console.log(disable);
   }
 
   function total() {
@@ -103,7 +106,6 @@ const Step2 = ({
               <MenuItem
                 key={dato.Electrodomestico}
                 value={JSON.stringify(dato)}
-
                 onClick={(e) => webo(e,index)}
                 disabled = {disable.includes(index)}
               >
@@ -113,7 +115,7 @@ const Step2 = ({
           })}
         </Select>
       </FormControl>
-      <TablaLista lista={lista} potmax={potmax} potmed={potmed} setLista={setLista}/>
+      <TablaLista lista={lista} potmax={potmax} potmed={potmed} setLista={setLista} disable={disable} handleDisable={handleDisable}/>
       
     </div>
   );

@@ -139,7 +139,6 @@ export default function Pap() {
 
   return (
     <div className={classes.root}>
-      <h1>{place.lugar}</h1>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
