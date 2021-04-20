@@ -4,7 +4,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import TablaLista from "./TablaLista";
-import { Grid, MenuItem } from "@material-ui/core";
+import { MenuItem } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -26,7 +26,6 @@ const Step2 = ({
   setPotmed,
 }) => {
   const classes = useStyles();
-  const [opcion, setOpcionState] = useState("");
   const [disable, setDisable] = useState([]);
 
   function handleDisable(newValue) {
@@ -93,7 +92,6 @@ const Step2 = ({
       <FormControl  variant="outlined" className={classes.formControl}>
         <InputLabel htmlFor="outlined-age-native-simple">Selecciona</InputLabel>
         <Select
-          value={opcion}
           onChange={(e)=>addrow(e)}
           label="Electrodomestico"
         >

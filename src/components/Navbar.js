@@ -26,10 +26,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        
       <Typography variant="h6"  className={classes.title}><Link color="secondary" to="/" className={classes.link}>Home</Link></Typography>
-        
-        
         <Button color="inherit"><Link to="/about" className={classes.link}>About</Link></Button>
       </Toolbar>
     </AppBar>
